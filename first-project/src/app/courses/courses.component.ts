@@ -8,13 +8,15 @@ import { CoursesService } from './courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-  private portalName: string;
-  protected courses!: string[];
+  portalName: string;
+  courses: string[];
 
   constructor(
-    coursesService: CoursesService;
+   private coursesService: CoursesService
   ) {
     this.portalName = 'http://loiani.training';
+
+    this.courses = this.coursesService.getCourses();
   }
 
   ngOnInit(): void {
